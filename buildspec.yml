@@ -11,14 +11,14 @@ phases:
       - REPOSITORY_URI=385020026243.dkr.ecr.ap-southeast-2.amazonaws.com/nest-ecs
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
-      - echo printing docker images
-      - docker images
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - echo printing docker images
+      - docker images
   post_build:
     commands:
       - echo Build completed on `date`
