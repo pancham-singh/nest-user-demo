@@ -3,7 +3,7 @@ services:
   nest-ec2:
     build: .
 
-    image: panchampunjab/nest-ec2
+    image: 385020026243.dkr.ecr.ap-southeast-2.amazonaws.com/nest-ecs:latest
     environment:
       - MONGO_USER=mongo
       - MONGO_PASSWORD=password
