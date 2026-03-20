@@ -1,0 +1,13 @@
+version: "3"
+services:
+  nest-ec2:
+    build: .
+
+    image: panchampunjab/nest-ec2
+    environment:
+      - MONGO_USER=mongo
+      - MONGO_PASSWORD=password
+      - MONGO_IP=mongo
+      - MONGO_PORT=27017
+    ports:
+      - "3000:3000"
