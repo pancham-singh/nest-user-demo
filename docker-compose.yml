@@ -2,7 +2,6 @@ version: "3"
 services:
   nest-ec2:
     build: .
-
     image: 385020026243.dkr.ecr.ap-southeast-2.amazonaws.com/nest-ecs:latest
     environment:
       - MONGO_USER=mongo

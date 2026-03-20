@@ -3,6 +3,7 @@ phases:
   install:
     runtime-versions:
       nodejs: 20.x
+      curl: 7.x
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
