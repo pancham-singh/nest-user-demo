@@ -1,5 +1,6 @@
 # Use a multi-stage build so the build step has access to source files (including tsconfig.json)
 FROM node:20-alpine AS builder
+RUN apk add curl
 WORKDIR /usr/src/app
 
 # Install dev dependencies for building
