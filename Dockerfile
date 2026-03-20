@@ -12,7 +12,6 @@ COPY . .
 
 # Build the project (produces dist/)
 RUN npm run build
-
 # Final image: only production deps + built output
 FROM node:20-alpine AS runner
 WORKDIR /usr/src/app
