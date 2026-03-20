@@ -11,6 +11,8 @@ phases:
       - REPOSITORY_URI=385020026243.dkr.ecr.ap-southeast-2.amazonaws.com/nest-ecs
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - echo printing docker images
+      - docker images
   build:
     commands:
       - echo Build started on `date`
@@ -23,8 +25,10 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - DOCKER_CONTAINER_NAME=nest-ecr
       - echo Writing image definitions file...
       - printf '[{"name":"nest-ecs testing","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > ${CODEBUILD_SRC_DIR}/imagedefinitions.json
+      - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
