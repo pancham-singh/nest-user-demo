@@ -8,7 +8,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 385020026243.dkr.ecr.ap-southeast-2.amazonaws.com
-      - REPOSITORY_URI=385020026243.dkr.ecr.ap-southeast-2.amazonaws.com/nest-ecs
+      - REPOSITORY_URI=385020026243.dkr.ecr.ap-south-1.amazonaws.com/nest-api-ecs
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
